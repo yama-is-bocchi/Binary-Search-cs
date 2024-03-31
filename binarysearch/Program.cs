@@ -59,7 +59,7 @@ for (; ; )
 
     var sw = new Stopwatch();
     sw.Start();
-    int min = 1;
+    int min = 0;
     int abs_max = Convert.ToInt32(array_range);
     int max = Convert.ToInt32(array_range);
     int mid = max / 2;
