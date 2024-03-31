@@ -12,11 +12,11 @@ for (; ; )
 
     for (; ; )
     {
-        Console.WriteLine("配列の範囲を指定してください(10桁以内)");
+        Console.WriteLine("配列の範囲を指定してください(9桁以内)");
 
         array_range = Console.ReadLine() + "";
 
-        if ((Regex.IsMatch(array_range, @"^[0-9]+$")) == true && array_range.Length < 11)
+        if ((Regex.IsMatch(array_range, @"^[0-9]+$")) == true && array_range.Length < 10)
         {
             break;
         }
@@ -35,7 +35,7 @@ for (; ; )
 
         search_data = Console.ReadLine() + "";
 
-        if (Regex.IsMatch(search_data, @"^[0-9]+$") == true && search_data.Length < 11)
+        if (Regex.IsMatch(search_data, @"^[0-9]+$") == true && search_data.Length < 10)
         {
 
             if (Convert.ToInt32(search_data)<=Convert.ToInt32(array_range))
