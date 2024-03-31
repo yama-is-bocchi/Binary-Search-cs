@@ -64,7 +64,11 @@ for (; ; )
     int max = Convert.ToInt32(array_range);
     int mid = max / 2;
     int goal_num = Convert.ToInt32(search_data);
-    Console.WriteLine("中央値:{0}", mid);
+    int count=0;
+
+
+    count++;
+    Console.WriteLine("{0}:中央値:{1}", count, mid);
 
     for (; ; )
     {
@@ -73,8 +77,8 @@ for (; ; )
 
             if (mid + 1 == abs_max)
             {
-
-                Console.WriteLine("中央値:{0}", mid+1);
+                count++;
+                Console.WriteLine("{0}:中央値:{1}", count,mid+1);
                 Console.WriteLine("\n探索完了\n");
                 break;
             }
@@ -89,8 +93,8 @@ for (; ; )
 
             if (mid - 1 == 0)
             {
-
-                Console.WriteLine("中央値:{0}", mid - 1);
+                count++;
+                Console.WriteLine("{0}:中央値:{1}",count, mid - 1);
                 Console.WriteLine("\n探索完了\n");
                 break;
             }
@@ -104,14 +108,14 @@ for (; ; )
             Console.WriteLine("\n探索完了\n");
             break;
         }
-
-        Console.WriteLine("中央値:{0}",mid);
+        count++;
+        Console.WriteLine("{0}:中央値:{1}",count, mid);
     }
 
     sw.Stop();
 
     
-    Console.WriteLine($"探索時間: {TimeSpan.FromTicks(sw.ElapsedTicks)}, 対象データ: {goal_num}");
+    Console.WriteLine($"探索時間: {TimeSpan.FromTicks(sw.ElapsedTicks)}, 対象データ: {goal_num}, 試行回数:{count}");
 
     for (; ; )
     {
