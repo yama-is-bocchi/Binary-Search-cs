@@ -37,7 +37,16 @@ for (; ; )
 
         if (Regex.IsMatch(search_data, @"^[0-9]+$") == true && search_data.Length < 11)
         {
-            break;
+
+            if (Convert.ToInt32(search_data)<=Convert.ToInt32(array_range))
+            {
+
+                break;
+            }
+            else
+            {
+                Console.WriteLine("データが配列の範囲外の値です");
+            }
         }
         else
         {
@@ -51,6 +60,7 @@ for (; ; )
     var sw = new Stopwatch();
     sw.Start();
     int min = 1;
+    int abs_max = Convert.ToInt32(array_range);
     int max = Convert.ToInt32(array_range);
     int mid = max / 2;
     int goal_num = Convert.ToInt32(search_data);
@@ -60,13 +70,34 @@ for (; ; )
     {
         if (mid < goal_num)
         {
+
+            if (mid + 1 == abs_max)
+            {
+
+                Console.WriteLine("中央値:{0}", mid+1);
+                Console.WriteLine("\n探索完了\n");
+                break;
+            }
+
+
             min = mid;
             mid = mid + ((max - min) / 2);
+
         }
         else if (mid > goal_num)
         {
+
+            if (mid - 1 == 0)
+            {
+
+                Console.WriteLine("中央値:{0}", mid - 1);
+                Console.WriteLine("\n探索完了\n");
+                break;
+            }
+
             max = mid;
             mid = min + ((max - min) / 2);
+          
         }
         else if (mid == goal_num)
         {
